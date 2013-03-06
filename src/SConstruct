@@ -177,7 +177,7 @@ ALSA = '1'
 SETUP = '0'
 SDK = '0'
 NOCONF = '0'
-NOCURL = '0'
+NOCURL = '1'
 BUILD_GAMEPAK = '0'
 BASEFLAGS = ''
 SILENT = '0'
@@ -420,7 +420,7 @@ if ( TARGET_CORE == '1' ):
 		Export( 'GLOBALS ' + GLOBALS ) # update idlib_objects
 		doom = SConscript( g_build + '/core/sys/scons/SConscript.core' )
 
-		InstallAs( '#doom.' + cpu, doom )
+		InstallAs( '#wolfram', doom )
 		
 	if ( DEDICATED == '1' or DEDICATED == '2' ):
 		local_dedicated = 1
@@ -433,7 +433,7 @@ if ( TARGET_CORE == '1' ):
 		Export( 'GLOBALS ' + GLOBALS )
 		doomded = SConscript( g_build + '/dedicated/sys/scons/SConscript.core' )
 
-		InstallAs( '#doomded.' + cpu, doomded )
+		InstallAs( '#wolfded.' + cpu, doomded )
 
 if ( TARGET_GAME == '1' ):
 	local_gamedll = 1
@@ -452,7 +452,7 @@ if ( TARGET_GAME == '1' ):
 	if ( TARGET_GAME == '1' ):
 		Export( 'GLOBALS ' + GLOBALS )
 		game = SConscript( g_build + '/game/sys/scons/SConscript.game' )
-		game_base = InstallAs( '#game%s-base.so' % cpu, game )
+		game_base = InstallAs( '#game%s.so' % cpu, game )
 		if ( BUILD_GAMEPAK == '1' ):
 			Command( '#game01-base.pk4', [ game_base, game ], Action( g_env.BuildGamePak ) )
 	
