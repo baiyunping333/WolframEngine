@@ -586,9 +586,9 @@ void idSessionLocal::HandleMainMenuCommands( const char *menuCommand ) {
 				StartNewGame( args.Argv( icmd++ ) );
 			} else {
 #ifndef ID_DEMO_BUILD
-				StartNewGame( "game/mars_city1" );
+				StartNewGame( "demo" );
 #else
-				StartNewGame( "game/demo_mars_city1" );
+				StartNewGame( "doorshow" );
 #endif
 			}
 			// need to do this here to make sure com_frameTime is correct or the gui activates with a time that 

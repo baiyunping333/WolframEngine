@@ -1,25 +1,25 @@
 /*
 ===========================================================================
 
-Doom 3 GPL Source Code
+Wolfram 3 GPL Source Code
 Copyright (C) 1999-2011 id Software LLC, a ZeniMax Media company. 
 
-This file is part of the Doom 3 GPL Source Code (?Doom 3 Source Code?).  
+This file is part of the Wolfram 3 GPL Source Code (?Wolfram 3 Source Code?).  
 
-Doom 3 Source Code is free software: you can redistribute it and/or modify
+Wolfram 3 Source Code is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-Doom 3 Source Code is distributed in the hope that it will be useful,
+Wolfram 3 Source Code is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with Doom 3 Source Code.  If not, see <http://www.gnu.org/licenses/>.
+along with Wolfram 3 Source Code.  If not, see <http://www.gnu.org/licenses/>.
 
-In addition, the Doom 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Doom 3 Source Code.  If not, please request a copy in writing from id Software at the address below.
+In addition, the Wolfram 3 Source Code is also subject to certain additional terms. You should have received a copy of these additional terms immediately following the terms and conditions of the GNU General Public License which accompanied the Wolfram 3 Source Code.  If not, please request a copy in writing from id Software at the address below.
 
 If you have questions concerning this license or the applicable additional terms, you may contact in writing id Software LLC, c/o ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.
 
@@ -34,12 +34,12 @@ If you have questions concerning this license or the applicable additional terms
 ===============================================================================
 */
 
-#define GAME_NAME						"DOOM 3"		// appears on window titles and errors
+#define GAME_NAME						"WOLFRAM"		// appears on window titles and errors
 
-#define ENGINE_VERSION					"DOOM 1.3.1"	// printed in console
+#define ENGINE_VERSION					"WOLFRAM ONE"	// printed in console
 
 // paths
-#define	CD_BASEDIR						"Doom"
+#define	CD_BASEDIR						"Wolfram"
 #ifdef ID_DEMO_BUILD
 	#define BASE_GAMEDIR					"demo"
 #else
@@ -47,8 +47,8 @@ If you have questions concerning this license or the applicable additional terms
 #endif
 
 // filenames
-#define	CD_EXE							"doom.exe"
-#define CONFIG_FILE						"DoomConfig.cfg"
+#define	CD_EXE							"wolfram.exe"
+#define CONFIG_FILE						"WolframConfig.cfg"
 
 // base folder where the source code lives
 #define SOURCE_CODE_BASE_FOLDER			"neo"
@@ -79,16 +79,16 @@ If you have questions concerning this license or the applicable additional terms
 // Savegame Version
 // Update when you can no longer maintain compatibility with previous savegames
 // NOTE: a seperate core savegame version and game savegame version could be useful
-// 16: Doom v1.1
-// 17: Doom v1.2 / D3XP. Can still read old v16 with defaults for new data
+// 16: Wolfram v1.1
+// 17: Wolfram v1.2 / D3XP. Can still read old v16 with defaults for new data
 #define SAVEGAME_VERSION				17
 
-// <= Doom v1.1: 1. no DS_VERSION token ( default )
-// Doom v1.2: 2
+// <= Wolfram v1.1: 1. no DS_VERSION token ( default )
+// Wolfram v1.2: 2
 #define RENDERDEMO_VERSION				2
 
 // editor info
-#define EDITOR_DEFAULT_PROJECT			"doom.qe4"
+#define EDITOR_DEFAULT_PROJECT			"wolfram.qe4"
 #define EDITOR_REGISTRY_KEY				"DOOMRadiant"
 #define EDITOR_WINDOWTEXT				"DOOMEdit"
 
@@ -99,9 +99,9 @@ If you have questions concerning this license or the applicable additional terms
 
 // Linux info
 #ifdef ID_DEMO_BUILD
-	#define LINUX_DEFAULT_PATH			"/usr/local/games/doom3-demo"
+	#define LINUX_DEFAULT_PATH			"/usr/local/games/wolfram-demo"
 #else
-	#define LINUX_DEFAULT_PATH			"/usr/local/games/doom3"
+	#define LINUX_DEFAULT_PATH			"/usr/local/games/wolfram"
 #endif
 
 // CD Key file info

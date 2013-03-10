@@ -1,3 +1,6 @@
+#include "script/symbols.script"
+#include "script/map_doorshow.script"
+
 object player {
   void init();
   boolean AI_FORWARD;
@@ -26,4 +29,8 @@ void player::init() {
 }
 
 void player::RaiseWeapon() {
+}
+
+void doom_main(){
+	sys.print("Initializing script subsystem!\n");
 }

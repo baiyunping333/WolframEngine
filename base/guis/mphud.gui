@@ -3,4 +3,5 @@ windowDef Desktop {
 
    backcolor 0, 0, 0, 0
    nocursor  1
+   
 }
