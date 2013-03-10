@@ -2,25 +2,96 @@ windowDef Desktop
 { 
    rect      0, 0, 640, 480 
    backcolor 0, 0, 0, 1
+   matcolor 1,1,1,1
    menugui      1
    
-   windowDef Text1 {
-        rect        510, 440, 100, 20 
-        backcolor   0.5, 0.6, 0.6, 0.3
-        bordercolor 0.5, 0.6, 0.6, 1
-        bordersize  1
-        text        "Quit"
-        font        "fonts/bank"
-        textscale   0.2
-        textalign   1
-        shadow      1
-        forecolor   0.7, 0.7, 0.4, 1
-        visible     1
-				
-				onAction {
-					set "cmd" "quit";
-				}
-    }
+  windowDef Splash
+	{
+		rect	0,0,640,480
+		visible	0
+		background	"gui/intro/splash"
+		matcolor	1,1,1,1
+
+		onTime 2000 {
+			resetCinematics ;
+			set visible 1
+		}
+		onTime 3000{
+			set visible 0
+			set notime 1
+		}
+	}
+	
+	windowDef SplashStart 
+	{
+		rect 0, 0, 640, 480
+		visible 1
+		matcolor 0.95, 0.95, 0.95, 1
+		background "gui/intro/splash_start"
+		onTime 0 {
+			transition backcolor "0 0 0 1" "1 1 1 1" "1000" ;
+		}
+		onTime 2000{
+			set visible 0
+			set notime 1
+		}
+	}
+	
+	windowDef SplashEnd 
+	{
+		rect 0, 0, 640, 480
+		background "gui/intro/splash_end"
+		
+		matcolor 0.95, 0.95, 0.95, 1
+		visible 0
+		onTime 3000{
+			set visible 1
+		}
+	}
+	
+	windowDef Quit {
+		rect        510, 440, 100, 25 
+		bordercolor 0, 0.3, 0.9, 1
+		background "gui/white"
+		backcolor 1, 1, 1, 1
+		bordersize  1
+		text        "Avsluta"
+		font        "fonts/bank"
+		textscale   0.24
+		textalign   1
+		forecolor   0, 0.3, 0.9, 1
+		visible     0
+		
+		onTime 3000 {
+			set visible 1
+		}
+		
+		onAction {
+			set "cmd" "quit";
+		}
+	}
+	windowDef Start {
+		rect        220, 300, 200, 25
+		bordercolor 0, 0.3, 0.9, 1
+		
+		background "gui/white"
+		backcolor		1, 1, 1, 1
+		bordersize  1
+		text        "Starta Showroom"
+		font        "fonts/bank"
+		textscale   0.24
+		textalign   1
+		forecolor   0, 0.3, 0.9, 1
+		visible     0
+		
+		onTime 3000 {
+			set visible 1;
+		}
+		onAction {
+			set "cmd" "startgame doorshow";
+			set visible 0 
+		}
+	}
     onESC {
 			set "cmd" "close";
 		}

@@ -43,14 +43,3 @@ lights/defaultpointlight
 		zeroClamp
 	}
 }
-
-lights/square
-{
-	{
-		forceHighQuality
-		map	lights/squarelight1.tga
-		colored
-		zeroclamp
-		
-	}
-}

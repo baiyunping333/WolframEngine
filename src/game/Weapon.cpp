@@ -284,7 +284,7 @@ void idWeapon::Save( idSaveGame *savefile ) const {
 
 	savefile->WriteVec3( pushVelocity );
 
-	savefile->WriteString( weaponDef->GetName() );
+	savefile->WriteString( ((weaponDef)?weaponDef->GetName():"none") );
 	savefile->WriteFloat( meleeDistance );
 	savefile->WriteString( meleeDefName );
 	savefile->WriteInt( brassDelay );
@@ -422,16 +422,19 @@ void idWeapon::Restore( idRestoreGame *savefile ) {
 	idStr objectname;
 	savefile->ReadString( objectname );
 	weaponDef = gameLocal.FindEntityDef( objectname );
-	meleeDef = gameLocal.FindEntityDef( weaponDef->dict.GetString( "def_melee" ), false );
-
-	const idDeclEntityDef *projectileDef = gameLocal.FindEntityDef( weaponDef->dict.GetString( "def_projectile" ), false );
+	if(weaponDef)
+		meleeDef = gameLocal.FindEntityDef( weaponDef->dict.GetString( "def_melee" ), false );
+	else
+		meleeDef = 0;
+		
+	const idDeclEntityDef *projectileDef = gameLocal.FindEntityDef( weaponDef?weaponDef->dict.GetString( "def_projectile" ):"", false );
 	if ( projectileDef ) {
 		projectileDict = projectileDef->dict;
 	} else {
 		projectileDict.Clear();
 	}
 
-	const idDeclEntityDef *brassDef = gameLocal.FindEntityDef( weaponDef->dict.GetString( "def_ejectBrass" ), false );
+	const idDeclEntityDef *brassDef = gameLocal.FindEntityDef( weaponDef?weaponDef->dict.GetString( "def_ejectBrass" ):"", false );
 	if ( brassDef ) {
 		brassDict = brassDef->dict;
 	} else {
@@ -773,7 +776,9 @@ void idWeapon::GetWeaponDef( const char *objectname, int ammoinclip ) {
 	assert( owner );
 
 	weaponDef			= gameLocal.FindEntityDef( objectname );
-
+	
+	if(!weaponDef) return;
+	
 	ammoType			= GetAmmoNumForName( weaponDef->dict.GetString( "ammoType" ) );
 	ammoRequired		= weaponDef->dict.GetInt( "ammoRequired" );
 	clipSize			= weaponDef->dict.GetInt( "clipSize" );
@@ -2802,11 +2807,13 @@ void idWeapon::Event_LaunchProjectiles( int num_projectiles, float spread, float
 	idVec3			muzzle_pos;
 	idBounds		ownerBounds, projBounds;
 
+	if( ! weaponDef) return; 
+	
 	if ( IsHidden() ) {
 		return;
 	}
 
-	if ( !projectileDict.GetNumKeyVals() ) {
+	if ( !projectileDict.GetNumKeyVals() && weaponDef ) {
 		const char *classname = weaponDef->dict.GetString( "classname" );
 		gameLocal.Warning( "No projectile defined on '%s'", classname );
 		return;
@@ -2915,7 +2922,7 @@ void idWeapon::Event_LaunchProjectiles( int num_projectiles, float spread, float
 				gameLocal.SpawnEntityDef( projectileDict, &ent, false );
 			}
 
-			if ( !ent || !ent->IsType( idProjectile::Type ) ) {
+			if ( !ent || !ent->IsType( idProjectile::Type ) && weaponDef ) {
 				const char *projectileName = weaponDef->dict.GetString( "def_projectile" );
 				gameLocal.Error( "'%s' is not an idProjectile", projectileName );
 			}
@@ -2969,6 +2976,8 @@ void idWeapon::Event_Melee( void ) {
 	idEntity	*ent;
 	trace_t		tr;
 
+	if(!weaponDef) return; 
+	
 	if ( !meleeDef ) {
 		gameLocal.Error( "No meleeDef on '%s'", weaponDef->dict.GetString( "classname" ) );
 	}
@@ -3109,6 +3118,8 @@ Toss a shell model out from the breach if the bone is present
 ================
 */
 void idWeapon::Event_EjectBrass( void ) {
+	if(!weaponDef) return;
+	
 	if ( !g_showBrass.GetBool() || !owner->CanShowWeaponViewmodel() ) {
 		return;
 	}
