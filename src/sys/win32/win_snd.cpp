@@ -88,7 +88,7 @@ public:
 	
 	int				GetNumberOfSpeakers()				{ return numSpeakers; }
 	int				GetMixBufferSize()					{ return MIXBUFFER_SAMPLES * blockAlign; }
-
+	 
 	// WIN32 driver doesn't support write API
 	bool Flush( void ) { return true; }
 	void Write( bool ) { }

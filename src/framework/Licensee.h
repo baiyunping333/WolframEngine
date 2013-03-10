@@ -34,12 +34,12 @@ If you have questions concerning this license or the applicable additional terms
 ===============================================================================
 */
 
-#define GAME_NAME						"DOOM 3"		// appears on window titles and errors
+#define GAME_NAME						"WOLFRAM BROWSER"		// appears on window titles and errors
 
-#define ENGINE_VERSION					"DOOM 1.3.1"	// printed in console
+#define ENGINE_VERSION					"WOLFRAM 1.0"	// printed in console
 
 // paths
-#define	CD_BASEDIR						"Doom"
+#define	CD_BASEDIR						"wolfram"
 #ifdef ID_DEMO_BUILD
 	#define BASE_GAMEDIR					"demo"
 #else
@@ -93,15 +93,15 @@ If you have questions concerning this license or the applicable additional terms
 #define EDITOR_WINDOWTEXT				"DOOMEdit"
 
 // win32 info
-#define WIN32_CONSOLE_CLASS				"DOOM 3 WinConsole"
-#define	WIN32_WINDOW_CLASS_NAME			"DOOM3"
-#define	WIN32_FAKE_WINDOW_CLASS_NAME	"DOOM3_WGL_FAKE"
+#define WIN32_CONSOLE_CLASS				"WOLFRAM WinConsole"
+#define	WIN32_WINDOW_CLASS_NAME			"WOLFRAM"
+#define	WIN32_FAKE_WINDOW_CLASS_NAME	"WOLFRAM_WGL_FAKE"
 
 // Linux info
 #ifdef ID_DEMO_BUILD
-	#define LINUX_DEFAULT_PATH			"/usr/local/games/doom3-demo"
+	#define LINUX_DEFAULT_PATH			"/usr/local/wolfram-demo"
 #else
-	#define LINUX_DEFAULT_PATH			"/usr/local/games/doom3"
+	#define LINUX_DEFAULT_PATH			"/usr/local/wolfram"
 #endif
 
 // CD Key file info
