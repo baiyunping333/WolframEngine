@@ -43,7 +43,7 @@ If you have questions concerning this license or the applicable additional terms
 #ifdef ID_DEMO_BUILD
 	#define BASE_GAMEDIR					"demo"
 #else
-	#define	BASE_GAMEDIR					"base"
+	#define	BASE_GAMEDIR					"."
 #endif
 
 // filenames
@@ -89,13 +89,13 @@ If you have questions concerning this license or the applicable additional terms
 
 // editor info
 #define EDITOR_DEFAULT_PROJECT			"wolfram.qe4"
-#define EDITOR_REGISTRY_KEY				"DOOMRadiant"
-#define EDITOR_WINDOWTEXT				"DOOMEdit"
+#define EDITOR_REGISTRY_KEY				"WOLFRAMRadiant"
+#define EDITOR_WINDOWTEXT				"WOLFRAMEdit"
 
 // win32 info
-#define WIN32_CONSOLE_CLASS				"DOOM 3 WinConsole"
-#define	WIN32_WINDOW_CLASS_NAME			"DOOM3"
-#define	WIN32_FAKE_WINDOW_CLASS_NAME	"DOOM3_WGL_FAKE"
+#define WIN32_CONSOLE_CLASS				"WOLFRAM WinConsole"
+#define	WIN32_WINDOW_CLASS_NAME			"WOLFRAM"
+#define	WIN32_FAKE_WINDOW_CLASS_NAME	"WOLFRAM_WGL_FAKE"
 
 // Linux info
 #ifdef ID_DEMO_BUILD
@@ -107,9 +107,9 @@ If you have questions concerning this license or the applicable additional terms
 // CD Key file info
 // goes into BASE_GAMEDIR whatever the fs_game is set to
 // two distinct files for easier win32 installer job
-#define CDKEY_FILE						"doomkey"
+#define CDKEY_FILE						"key"
 #define XPKEY_FILE						"xpkey"
 #define CDKEY_TEXT						"\n// Do not give this file to ANYONE.\n" \
-										"// id Software or Zenimax will NEVER ask you to send this file to them.\n"
+										"// We will NEVER ask you to send this file to them.\n"
 
 #define CONFIG_SPEC						"config.spec"

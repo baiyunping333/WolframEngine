@@ -2104,13 +2104,13 @@ BEGIN
     BEGIN
         BLOCK "040904b0"
         BEGIN
-            VALUE "CompanyName", "id Software"
-            VALUE "FileDescription", "DOOM 3"
+            VALUE "CompanyName", "Nordiska Marknadssystem AB"
+            VALUE "FileDescription", "WOLFRAM"
             VALUE "FileVersion", "1, 0, 0, 1"
-            VALUE "InternalName", "DOOM 3"
-            VALUE "LegalCopyright", "Copyright (C) 2004 id Software"
-            VALUE "OriginalFilename", "Doom.EXE"
-            VALUE "ProductName", "DOOM 3"
+            VALUE "InternalName", "WOLFRAM"
+            VALUE "LegalCopyright", "GPL"
+            VALUE "OriginalFilename", "wolfram.exe"
+            VALUE "ProductName", "WOLFRAM ENGINE"
             VALUE "ProductVersion", "1, 0, 0, 1"
         END
     END
