@@ -671,7 +671,11 @@ void idImage::GenerateImage( const byte *pic, int width, int height,
 		*/
 		UploadCompressedNormalMap( scaled_width, scaled_height, scaledBuffer, 0 );
 	} else {
-		qglTexImage2D( GL_TEXTURE_2D, 0, internalFormat, scaled_width, scaled_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, scaledBuffer );
+		try{
+			qglTexImage2D( GL_TEXTURE_2D, 0, internalFormat, scaled_width, scaled_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, scaledBuffer );
+		}catch(...){
+			common->Error("Could not create gl image for %s!", "..");
+		}
 	}
 
 	// create and upload the mip map levels, which we do in all cases, even if we don't think they are needed
@@ -706,8 +710,12 @@ void idImage::GenerateImage( const byte *pic, int width, int height,
 		if ( internalFormat == GL_COLOR_INDEX8_EXT ) {
 			UploadCompressedNormalMap( scaled_width, scaled_height, scaledBuffer, miplevel );
 		} else {
-			qglTexImage2D( GL_TEXTURE_2D, miplevel, internalFormat, scaled_width, scaled_height, 
-				0, GL_RGBA, GL_UNSIGNED_BYTE, scaledBuffer );
+			try{
+				qglTexImage2D( GL_TEXTURE_2D, miplevel, internalFormat, scaled_width, scaled_height, 
+					0, GL_RGBA, GL_UNSIGNED_BYTE, scaledBuffer );
+			}catch(...){
+				common->Error( "R_GenerateImage: failed to generate opengl texture!" );
+			}
 		}
 	}
 
@@ -1577,6 +1585,8 @@ void	idImage::ActuallyLoadImage( bool checkForPrecompressed, bool fromBackEnd ) 
 	int		width, height;
 	byte	*pic;
 
+	common->Printf("Loading image: %s\n", imgName.c_str());
+	
 	// this is the ONLY place generatorFunction will ever be called
 	if ( generatorFunction ) {
 		generatorFunction( this );

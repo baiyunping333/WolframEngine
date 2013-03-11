@@ -1,9 +1,0 @@
-_default {
-  {
-    map _default.tga
-  }
-}
-
-_tracemodel {
-  collision
-}
