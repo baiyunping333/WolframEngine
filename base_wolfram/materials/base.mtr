@@ -1,0 +1,43 @@
+_default {
+  {
+    map _default.tga
+  }
+}
+
+_tracemodel {
+  collision
+}
+
+ui/assets/guicursor_arrow
+{
+	twosided
+	{
+		blend blend
+		ignoreAlphaTest
+		map textures/ui/cursor_arrow.tga
+	}
+}
+
+ui/assets/guicursor_hand
+{
+	{
+		blend blend
+		map textures/ui/cursor_hand.tga
+	}
+}
+
+
+splashscreen
+{
+	{
+		map textures/white.tga
+	}
+}
+
+console
+{
+	{
+		blend blend
+		map textures/black.tga
+	}
+}
