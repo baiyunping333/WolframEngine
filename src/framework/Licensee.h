@@ -43,7 +43,7 @@ If you have questions concerning this license or the applicable additional terms
 #ifdef ID_DEMO_BUILD
 	#define BASE_GAMEDIR					"demo"
 #else
-	#define	BASE_GAMEDIR					"."
+	#define	BASE_GAMEDIR					""
 #endif
 
 // filenames
